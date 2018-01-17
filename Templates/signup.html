@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}"/>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1 style="color:white;">Sign Up</h1></legend>
+        {{form.as_p}}
+        <button class="btn btn-success" type="submit" >Save</button>
+
+    </fieldset>
+</form>
+</body>
+</html>

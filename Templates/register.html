@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>@import url("https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/darkly/bootstrap.min.css");</style>
+    <title>Registration</title>
+</head>
+<body>
+<div class="container">
+    <h1>Create Profile</h1>
+    <hr>
+    <div class="row">
+
+        <div class="col-md-12 personal-info">
+            {% if err %}
+            <div class="alert alert-info alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <!--{{err.username}}-->
+                {{err}}
+                <!--{{err.email}}-->
+            </div>
+            {% endif %}
+            <form class="form-horizontal"method="post" enctype='multipart/form-data' action="{% url "loginapp:signup" %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">First name:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" name="firstname" placeholder="First Name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Last name:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" name="lastname" placeholder="Last Name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" name="email" placeholder="E-mail" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Username:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" name="username" type="text" placeholder="Username" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Profile Picture</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="file" name="profile_pic" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Password:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" name="password" type="password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Confirm password:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" name="confirmpassword" type="password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input type="submit" class="btn btn-primary" value="Cretae User">
+                        <span></span>
+                        <input type="reset" class="btn btn-default" value="Cancel">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<hr>
+</body>
+</html>
